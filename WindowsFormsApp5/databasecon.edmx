@@ -1,0 +1,1151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MRTRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DOVIZ_AD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="nvarchar" MaxLength="3" />
+          <Property Name="ACIKLAMA" Type="nvarchar" MaxLength="50" />
+          <Property Name="ALT_AD" Type="nvarchar" MaxLength="50" />
+          <Property Name="KASA_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="FINANS_DETAY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="FINANS" Type="bigint" />
+          <Property Name="FINANS_ISLEM_TURU" Type="int" />
+          <Property Name="DOVIZ_AD" Type="bigint" />
+          <Property Name="KUR" Type="decimal" Precision="18" Scale="8" />
+          <Property Name="KART_BORCLU" Type="bigint" />
+          <Property Name="KART_ALACAKLI" Type="bigint" />
+          <Property Name="TUTAR" Type="decimal" Precision="18" Scale="8" />
+          <Property Name="SECIM" Type="int" />
+          <Property Name="TAHSILID" Type="bigint" />
+          <Property Name="FIS" Type="bigint" />
+          <Property Name="VADE_TARIHI" Type="date" />
+          <Property Name="FK_PERSONEL" Type="bigint" />
+          <Property Name="ACIKLAMA" Type="nvarchar" MaxLength="250" />
+          <Property Name="TAKSIT_SAYISI" Type="int" />
+          <Property Name="ISLEM_TARIHI" Type="datetime" />
+          <Property Name="YENIDEN_TAKSIT" Type="bigint" />
+          <Property Name="unboundKUPON" Type="bigint" />
+          <Property Name="BANKA_POS_TAKSIT" Type="bigint" />
+          <Property Name="CARI_ADRES" Type="bigint" />
+          <Property Name="MUHASEBELESTI" Type="bit" />
+          <Property Name="TAKSIT_FISI" Type="bigint" />
+          <Property Name="BELGENO" Type="nvarchar" MaxLength="50" />
+          <Property Name="FK_PROJE" Type="bigint" />
+        </EntityType>
+        <EntityType Name="LOKASYON">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="USTID" Type="bigint" />
+          <Property Name="AD" Type="nvarchar" MaxLength="50" />
+          <Property Name="LOKASYON_TURU" Type="bigint" />
+          <Property Name="SIPARIS_LOKASYONU_MU" Type="bit" />
+          <Property Name="FIZIKI_MI" Type="bit" />
+          <Property Name="ILILCE" Type="bigint" />
+          <Property Name="ADRES" Type="nvarchar" MaxLength="150" />
+          <Property Name="SICAK_SATISA_ACIK" Type="bit" />
+          <Property Name="ALISA_ACIK" Type="bit" />
+          <Property Name="SATISA_ACIK" Type="bit" />
+          <Property Name="STOK_FIYAT_AD" Type="bigint" />
+          <Property Name="BOYLAM" Type="varchar" MaxLength="20" />
+          <Property Name="ENLEM" Type="varchar" MaxLength="20" />
+          <Property Name="AKTIF" Type="bit" />
+          <Property Name="EMAIL_ADRES" Type="nvarchar" MaxLength="80" />
+          <Property Name="EMAIL_PORTNO" Type="int" />
+          <Property Name="EMAIL_HOST" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMAIL_USER" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMAIL_PASSWORD" Type="nvarchar" MaxLength="50" />
+          <Property Name="YS_RestaurantList" Type="int" />
+          <Property Name="MEKEZI_PAKET_ALIR" Type="bit" />
+          <Property Name="POS_MUTFAK_YAZICI_PC" Type="bigint" />
+          <Property Name="MERKEZI_PAKET_PC" Type="bigint" />
+          <Property Name="SSL" Type="bit" />
+          <Property Name="STOK_SEVIYE_UYARISI" Type="int" />
+          <Property Name="ZMAIL" Type="nvarchar(max)" />
+          <Property Name="KT_SUBE_NO" Type="int" />
+          <Property Name="LOKASYON_MALIYET_FIYAT_AD" Type="bigint" />
+          <Property Name="POS_KISISAYISI_ZORUNLU" Type="bit" />
+          <Property Name="AKRT_FIRMA" Type="bigint" />
+          <Property Name="AKRT_DOSYA_YOLU" Type="nvarchar(max)" />
+          <Property Name="AKRT_DAGITICI_CARI" Type="bigint" />
+          <Property Name="VARSAYILAN_CARI_GRUP" Type="bigint" />
+          <Property Name="E_BELGEDE_LOKASYON_ADRESI_YOLLANIR" Type="bit" />
+          <Property Name="TELEFON" Type="nvarchar" MaxLength="15" />
+          <Property Name="FAX" Type="nvarchar" MaxLength="15" />
+          <Property Name="AKRT_MANUEL" Type="bigint" />
+          <Property Name="AKRT_FLEET_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="PLAKA" Type="nvarchar" MaxLength="15" />
+          <Property Name="BURDANBI_DE_CALISIR" Type="bit" />
+          <Property Name="LOKASYON_SEVKINDE_MALIYET_FIYATINI_KULLANIR" Type="bit" />
+          <Property Name="POSTA_KODU" Type="nvarchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="TCMB_KUR_CRMPOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TARIH" Type="datetime" />
+          <Property Name="ALIS" Type="decimal" Precision="18" Scale="8" />
+          <Property Name="SATIS" Type="decimal" Precision="18" Scale="8" />
+          <Property Name="DOVIZ_AD" Type="bigint" />
+          <Property Name="SIRA" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MRTR.dbo.wwwDOVIZ_KUR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="wwwDOVIZ_KUR">
+          <Key>
+            
+            
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="DOVIZ_AD" Type="bigint" />
+          <Property Name="TARIH" Type="nvarchar" MaxLength="4000" />
+          <Property Name="ALIS" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+          <Property Name="SATIS" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+          <Property Name="EFEKTIF_ALIS" Type="decimal" Precision="18" Scale="8" />
+          <Property Name="EFEKTIF_SATIS" Type="decimal" Precision="18" Scale="8" />
+          <Property Name="ID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MRTR.dbo.wwwView_DovizliFisler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="wwwView_DovizliFisler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="FIS_ID" Type="bigint" />
+          <Property Name="FISTURU" Type="nvarchar" MaxLength="50" />
+          <Property Name="BELGENO" Type="nvarchar" MaxLength="50" />
+          <Property Name="FIS_GENELTOP" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="NAKIT" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="DOVIZTUR" Type="nvarchar" MaxLength="3" />
+          <Property Name="KUR" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="TL_DEGER" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="PARAUSTU_TL" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="KREDI" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="TOPLAM_TL" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="Lkid" Type="bigint" />
+          <Property Name="LOKASYON" Type="nvarchar" MaxLength="50" />
+          <Property Name="PERSONEL" Type="nvarchar" MaxLength="150" />
+          <Property Name="ISLEM_TARIHI" Type="datetime" />
+          <Property Name="ISLEMTURU" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MRTR.dbo.wwwView_Dovizlifislerdetay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="wwwView_Dovizlifislerdetay">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Fis_id" Type="bigint" />
+          <Property Name="KOD" Type="nvarchar" MaxLength="50" />
+          <Property Name="BARKOD" Type="nvarchar" MaxLength="20" />
+          <Property Name="AD" Type="nvarchar" MaxLength="100" />
+          <Property Name="MIKTAR" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="BIRIM" Type="nvarchar" MaxLength="50" />
+          <Property Name="FIYAT" Type="decimal" Precision="18" Scale="8" />
+          <Property Name="TOPLAM_KDV" Type="decimal" Precision="18" Scale="8" />
+          <Property Name="DAHIL_FIYAT" Type="decimal" Precision="18" Scale="8" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MRTR.dbo.wwwView_FislerinTLDegeri' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="wwwView_FislerinTLDegeri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="LOKASYON" Type="nvarchar" MaxLength="50" />
+          <Property Name="FISTURU" Type="nvarchar" MaxLength="50" />
+          <Property Name="NAKIT" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="DOVIZ" Type="nvarchar" MaxLength="3" />
+          <Property Name="TL_DEGER" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="KUR_BUGUN" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="KASADAKI_TL_DEGER" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="TL_DEGER_FARKI" Type="decimal" Precision="21" Scale="2" />
+          <Property Name="PARAUSTU_TL" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="PARAUSTU_USD" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="KUR" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="KUR_FARKI" Type="decimal" Precision="21" Scale="2" />
+          <Property Name="KREDI" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="TOPLAM_TL" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="BELGENO" Type="nvarchar" MaxLength="50" />
+          <Property Name="TARIH" Type="datetime" />
+          <Property Name="ODEMETIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dvzid" Type="bigint" />
+          <Property Name="Lkid" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_FINANS_DETAY_DOVIZ_AD">
+          <End Role="DOVIZ_AD" Type="Self.DOVIZ_AD" Multiplicity="0..1" />
+          <End Role="FINANS_DETAY" Type="Self.FINANS_DETAY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOVIZ_AD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FINANS_DETAY">
+              <PropertyRef Name="DOVIZ_AD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="crmpos_fifo_stok_doviz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="lokasyonid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="crmpos_fifo_stok_envanter_doviz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="lokasyonid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="crmpos_kasa_hareketi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DOVIZ" Type="bigint" Mode="In" />
+          <Parameter Name="KUR" Type="decimal" Mode="In" />
+          <Parameter Name="TUTAR" Type="decimal" Mode="In" />
+          <Parameter Name="ACIKLAMA" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="TARIH" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="crmpos_odeme_guncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TIP" Type="bigint" Mode="In" />
+          <Parameter Name="ID" Type="bigint" Mode="In" />
+          <Parameter Name="TUTAR" Type="decimal" Mode="In" />
+          <Parameter Name="DOVIZ" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="crmpos_paraustu_guncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FISID" Type="bigint" Mode="In" />
+          <Parameter Name="PRUSTU" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="sp_fis_kurlu_liste_getir" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="MRTRModelStoreContainer">
+          <EntitySet Name="DOVIZ_AD" EntityType="Self.DOVIZ_AD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FINANS_DETAY" EntityType="Self.FINANS_DETAY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOKASYON" EntityType="Self.LOKASYON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TCMB_KUR_CRMPOS" EntityType="Self.TCMB_KUR_CRMPOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wwwDOVIZ_KUR" EntityType="Self.wwwDOVIZ_KUR" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [wwwDOVIZ_KUR].[DOVIZ_AD] AS [DOVIZ_AD], 
+    [wwwDOVIZ_KUR].[TARIH] AS [TARIH], 
+    [wwwDOVIZ_KUR].[ALIS] AS [ALIS], 
+    [wwwDOVIZ_KUR].[SATIS] AS [SATIS], 
+    [wwwDOVIZ_KUR].[EFEKTIF_ALIS] AS [EFEKTIF_ALIS], 
+    [wwwDOVIZ_KUR].[EFEKTIF_SATIS] AS [EFEKTIF_SATIS], 
+    [wwwDOVIZ_KUR].[ID] AS [ID]
+    FROM [dbo].[wwwDOVIZ_KUR] AS [wwwDOVIZ_KUR]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="wwwView_DovizliFisler" EntityType="Self.wwwView_DovizliFisler" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [wwwView_DovizliFisler].[ID] AS [ID], 
+    [wwwView_DovizliFisler].[FIS_ID] AS [FIS_ID], 
+    [wwwView_DovizliFisler].[FISTURU] AS [FISTURU], 
+    [wwwView_DovizliFisler].[BELGENO] AS [BELGENO], 
+    [wwwView_DovizliFisler].[FIS_GENELTOP] AS [FIS_GENELTOP], 
+    [wwwView_DovizliFisler].[NAKIT] AS [NAKIT], 
+    [wwwView_DovizliFisler].[DOVIZTUR] AS [DOVIZTUR], 
+    [wwwView_DovizliFisler].[KUR] AS [KUR], 
+    [wwwView_DovizliFisler].[TL_DEGER] AS [TL_DEGER], 
+    [wwwView_DovizliFisler].[PARAUSTU_TL] AS [PARAUSTU_TL], 
+    [wwwView_DovizliFisler].[KREDI] AS [KREDI], 
+    [wwwView_DovizliFisler].[TOPLAM_TL] AS [TOPLAM_TL], 
+    [wwwView_DovizliFisler].[Lkid] AS [Lkid], 
+    [wwwView_DovizliFisler].[LOKASYON] AS [LOKASYON], 
+    [wwwView_DovizliFisler].[PERSONEL] AS [PERSONEL], 
+    [wwwView_DovizliFisler].[ISLEM_TARIHI] AS [ISLEM_TARIHI], 
+    [wwwView_DovizliFisler].[ISLEMTURU] AS [ISLEMTURU]
+    FROM [dbo].[wwwView_DovizliFisler] AS [wwwView_DovizliFisler]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="wwwView_Dovizlifislerdetay" EntityType="Self.wwwView_Dovizlifislerdetay" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [wwwView_Dovizlifislerdetay].[ID] AS [ID], 
+    [wwwView_Dovizlifislerdetay].[Fis_id] AS [Fis_id], 
+    [wwwView_Dovizlifislerdetay].[KOD] AS [KOD], 
+    [wwwView_Dovizlifislerdetay].[BARKOD] AS [BARKOD], 
+    [wwwView_Dovizlifislerdetay].[AD] AS [AD], 
+    [wwwView_Dovizlifislerdetay].[MIKTAR] AS [MIKTAR], 
+    [wwwView_Dovizlifislerdetay].[BIRIM] AS [BIRIM], 
+    [wwwView_Dovizlifislerdetay].[FIYAT] AS [FIYAT], 
+    [wwwView_Dovizlifislerdetay].[TOPLAM_KDV] AS [TOPLAM_KDV], 
+    [wwwView_Dovizlifislerdetay].[DAHIL_FIYAT] AS [DAHIL_FIYAT]
+    FROM [dbo].[wwwView_Dovizlifislerdetay] AS [wwwView_Dovizlifislerdetay]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="wwwView_FislerinTLDegeri" EntityType="Self.wwwView_FislerinTLDegeri" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [wwwView_FislerinTLDegeri].[ID] AS [ID], 
+    [wwwView_FislerinTLDegeri].[LOKASYON] AS [LOKASYON], 
+    [wwwView_FislerinTLDegeri].[FISTURU] AS [FISTURU], 
+    [wwwView_FislerinTLDegeri].[NAKIT] AS [NAKIT], 
+    [wwwView_FislerinTLDegeri].[DOVIZ] AS [DOVIZ], 
+    [wwwView_FislerinTLDegeri].[TL_DEGER] AS [TL_DEGER], 
+    [wwwView_FislerinTLDegeri].[KUR_BUGUN] AS [KUR_BUGUN], 
+    [wwwView_FislerinTLDegeri].[KASADAKI_TL_DEGER] AS [KASADAKI_TL_DEGER], 
+    [wwwView_FislerinTLDegeri].[TL_DEGER_FARKI] AS [TL_DEGER_FARKI], 
+    [wwwView_FislerinTLDegeri].[PARAUSTU_TL] AS [PARAUSTU_TL], 
+    [wwwView_FislerinTLDegeri].[PARAUSTU_USD] AS [PARAUSTU_USD], 
+    [wwwView_FislerinTLDegeri].[KUR] AS [KUR], 
+    [wwwView_FislerinTLDegeri].[KUR_FARKI] AS [KUR_FARKI], 
+    [wwwView_FislerinTLDegeri].[KREDI] AS [KREDI], 
+    [wwwView_FislerinTLDegeri].[TOPLAM_TL] AS [TOPLAM_TL], 
+    [wwwView_FislerinTLDegeri].[BELGENO] AS [BELGENO], 
+    [wwwView_FislerinTLDegeri].[TARIH] AS [TARIH], 
+    [wwwView_FislerinTLDegeri].[ODEMETIP] AS [ODEMETIP], 
+    [wwwView_FislerinTLDegeri].[Dvzid] AS [Dvzid], 
+    [wwwView_FislerinTLDegeri].[Lkid] AS [Lkid]
+    FROM [dbo].[wwwView_FislerinTLDegeri] AS [wwwView_FislerinTLDegeri]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_FINANS_DETAY_DOVIZ_AD" Association="Self.FK_FINANS_DETAY_DOVIZ_AD">
+            <End Role="DOVIZ_AD" EntitySet="DOVIZ_AD" />
+            <End Role="FINANS_DETAY" EntitySet="FINANS_DETAY" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MRTRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LOKASYON">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="USTID" Type="Int64" />
+          <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LOKASYON_TURU" Type="Int64" />
+          <Property Name="SIPARIS_LOKASYONU_MU" Type="Boolean" />
+          <Property Name="FIZIKI_MI" Type="Boolean" />
+          <Property Name="ILILCE" Type="Int64" />
+          <Property Name="ADRES" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SICAK_SATISA_ACIK" Type="Boolean" />
+          <Property Name="ALISA_ACIK" Type="Boolean" />
+          <Property Name="SATISA_ACIK" Type="Boolean" />
+          <Property Name="STOK_FIYAT_AD" Type="Int64" />
+          <Property Name="BOYLAM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ENLEM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AKTIF" Type="Boolean" />
+          <Property Name="EMAIL_ADRES" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL_PORTNO" Type="Int32" />
+          <Property Name="EMAIL_HOST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL_USER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL_PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YS_RestaurantList" Type="Int32" />
+          <Property Name="MEKEZI_PAKET_ALIR" Type="Boolean" />
+          <Property Name="POS_MUTFAK_YAZICI_PC" Type="Int64" />
+          <Property Name="MERKEZI_PAKET_PC" Type="Int64" />
+          <Property Name="SSL" Type="Boolean" />
+          <Property Name="STOK_SEVIYE_UYARISI" Type="Int32" />
+          <Property Name="ZMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KT_SUBE_NO" Type="Int32" />
+          <Property Name="LOKASYON_MALIYET_FIYAT_AD" Type="Int64" />
+          <Property Name="POS_KISISAYISI_ZORUNLU" Type="Boolean" />
+          <Property Name="AKRT_FIRMA" Type="Int64" />
+          <Property Name="AKRT_DOSYA_YOLU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AKRT_DAGITICI_CARI" Type="Int64" />
+          <Property Name="VARSAYILAN_CARI_GRUP" Type="Int64" />
+          <Property Name="E_BELGEDE_LOKASYON_ADRESI_YOLLANIR" Type="Boolean" />
+          <Property Name="TELEFON" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="FAX" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="AKRT_MANUEL" Type="Int64" />
+          <Property Name="AKRT_FLEET_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PLAKA" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="BURDANBI_DE_CALISIR" Type="Boolean" />
+          <Property Name="LOKASYON_SEVKINDE_MALIYET_FIYATINI_KULLANIR" Type="Boolean" />
+          <Property Name="POSTA_KODU" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="MRTREntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LOKASYON" EntityType="Self.LOKASYON" />
+          <FunctionImport Name="sp_fis_kurlu_liste_getir" ReturnType="Collection(MRTRModel.sp_fis_kurlu_liste_getir_Result)" />
+          <EntitySet Name="DOVIZ_AD" EntityType="MRTRModel.DOVIZ_AD" />
+          <EntitySet Name="FINANS_DETAY" EntityType="MRTRModel.FINANS_DETAY" />
+          <AssociationSet Name="FK_FINANS_DETAY_DOVIZ_AD" Association="MRTRModel.FK_FINANS_DETAY_DOVIZ_AD">
+            <End Role="DOVIZ_AD" EntitySet="DOVIZ_AD" />
+            <End Role="FINANS_DETAY" EntitySet="FINANS_DETAY" />
+          </AssociationSet>
+          <FunctionImport Name="crmpos_fifo_stok_doviz">
+          <Parameter Name="lokasyonid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="testsinan" />
+          <EntitySet Name="TCMB_KUR_CRMPOS" EntityType="MRTRModel.TCMB_KUR_CRMPOS" />
+          <EntitySet Name="wwwView_Dovizlifislerdetay" EntityType="MRTRModel.wwwView_Dovizlifislerdetay" />
+          <EntitySet Name="wwwView_FislerinTLDegeri" EntityType="MRTRModel.wwwView_FislerinTLDegeri" />
+          <FunctionImport Name="crmpos_fifo_stok_envanter_doviz">
+          <Parameter Name="lokasyonid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="crmpos_odeme_guncelle">
+            <Parameter Name="TIP" Mode="In" Type="Int64" />
+            <Parameter Name="ID" Mode="In" Type="Int64" />
+            <Parameter Name="TUTAR" Mode="In" Type="Decimal" />
+            <Parameter Name="DOVIZ" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="crmpos_paraustu_guncelle">
+            <Parameter Name="FISID" Mode="In" Type="Int64" />
+            <Parameter Name="PRUSTU" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <EntitySet Name="wwwView_DovizliFisler" EntityType="MRTRModel.wwwView_DovizliFisler" />
+          <EntitySet Name="wwwDOVIZ_KUR" EntityType="MRTRModel.wwwDOVIZ_KUR" />
+          <FunctionImport Name="crmpos_kasa_hareketi">
+            <Parameter Name="DOVIZ" Mode="In" Type="Int64" />
+            <Parameter Name="KUR" Mode="In" Type="Decimal" />
+            <Parameter Name="TUTAR" Mode="In" Type="Decimal" />
+            <Parameter Name="ACIKLAMA" Mode="In" Type="String" />
+            <Parameter Name="TARIH" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_fis_kurlu_liste_getir_Result">
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="Int64" Name="FINANS" Nullable="true" />
+          <Property Type="Int32" Name="FINANS_ISLEM_TURU" Nullable="true" />
+          <Property Type="Int64" Name="DOVIZ_AD" Nullable="true" />
+          <Property Type="Decimal" Name="KUR" Nullable="true" Precision="18" Scale="8" />
+          <Property Type="Int64" Name="KART_BORCLU" Nullable="true" />
+          <Property Type="Int64" Name="KART_ALACAKLI" Nullable="true" />
+          <Property Type="Decimal" Name="TUTAR" Nullable="true" Precision="18" Scale="8" />
+          <Property Type="Int32" Name="SECIM" Nullable="true" />
+          <Property Type="Int64" Name="TAHSILID" Nullable="true" />
+          <Property Type="Int64" Name="FIS" Nullable="true" />
+          <Property Type="DateTime" Name="VADE_TARIHI" Nullable="true" />
+          <Property Type="Int64" Name="FK_PERSONEL" Nullable="true" />
+          <Property Type="String" Name="ACIKLAMA" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TAKSIT_SAYISI" Nullable="true" />
+          <Property Type="DateTime" Name="ISLEM_TARIHI" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="YENIDEN_TAKSIT" Nullable="true" />
+          <Property Type="Int64" Name="unboundKUPON" Nullable="true" />
+          <Property Type="Int64" Name="BANKA_POS_TAKSIT" Nullable="true" />
+          <Property Type="Int64" Name="CARI_ADRES" Nullable="true" />
+          <Property Type="Boolean" Name="MUHASEBELESTI" Nullable="true" />
+          <Property Type="Int64" Name="TAKSIT_FISI" Nullable="true" />
+          <Property Type="String" Name="BELGENO" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="FK_PROJE" Nullable="true" />
+          <Property Type="Int64" Name="ID1" Nullable="false" />
+          <Property Type="Int64" Name="PROJE" Nullable="true" />
+          <Property Type="Int64" Name="LOKASYON" Nullable="true" />
+          <Property Type="Int64" Name="KASA_AD" Nullable="true" />
+          <Property Type="String" Name="BELGENO1" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="TARIH" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ISLEM_TARIHI1" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="FIS1" Nullable="true" />
+          <Property Type="Int64" Name="BAGLI_FINANS" Nullable="true" />
+          <Property Type="Boolean" Name="MOBIL_MI" Nullable="true" />
+          <Property Type="Int64" Name="ID2" Nullable="false" />
+          <Property Type="Int64" Name="FIS2" Nullable="true" />
+          <Property Type="Int64" Name="MASA" Nullable="true" />
+          <Property Type="Int32" Name="KISI" Nullable="true" />
+          <Property Type="Int32" Name="GUN_NO" Nullable="true" />
+          <Property Type="DateTime" Name="KAPANIS_TARIHI" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="PC_ID" Nullable="true" />
+          <Property Type="Int64" Name="POS_SIPARIS_TIPI" Nullable="true" />
+          <Property Type="Int32" Name="Z_NO" Nullable="true" />
+          <Property Type="DateTime" Name="Z_TARIHI" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="FIS_POS_IPTAL" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="KASA_Z" Nullable="true" />
+          <Property Type="Int32" Name="KASA_FIS" Nullable="true" />
+          <Property Type="String" Name="OKC_SERI_NO" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="PAKETCI" Nullable="true" />
+          <Property Type="String" Name="PLATFORM" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="ID3" Nullable="false" />
+          <Property Type="Int64" Name="USTID" Nullable="true" />
+          <Property Type="String" Name="AD" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="LOKASYON_TURU" Nullable="true" />
+          <Property Type="Boolean" Name="SIPARIS_LOKASYONU_MU" Nullable="true" />
+          <Property Type="Boolean" Name="FIZIKI_MI" Nullable="true" />
+          <Property Type="Int64" Name="ILILCE" Nullable="true" />
+          <Property Type="String" Name="ADRES" Nullable="true" MaxLength="150" />
+          <Property Type="Boolean" Name="SICAK_SATISA_ACIK" Nullable="true" />
+          <Property Type="Boolean" Name="ALISA_ACIK" Nullable="true" />
+          <Property Type="Boolean" Name="SATISA_ACIK" Nullable="true" />
+          <Property Type="Int64" Name="STOK_FIYAT_AD" Nullable="true" />
+          <Property Type="String" Name="BOYLAM" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ENLEM" Nullable="true" MaxLength="20" />
+          <Property Type="Boolean" Name="AKTIF" Nullable="true" />
+          <Property Type="String" Name="EMAIL_ADRES" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="EMAIL_PORTNO" Nullable="true" />
+          <Property Type="String" Name="EMAIL_HOST" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EMAIL_USER" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EMAIL_PASSWORD" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="YS_RestaurantList" Nullable="true" />
+          <Property Type="Boolean" Name="MEKEZI_PAKET_ALIR" Nullable="true" />
+          <Property Type="Int64" Name="POS_MUTFAK_YAZICI_PC" Nullable="true" />
+          <Property Type="Int64" Name="MERKEZI_PAKET_PC" Nullable="true" />
+          <Property Type="Boolean" Name="SSL" Nullable="true" />
+          <Property Type="Int32" Name="STOK_SEVIYE_UYARISI" Nullable="true" />
+          <Property Type="String" Name="ZMAIL" Nullable="true" />
+          <Property Type="Int32" Name="KT_SUBE_NO" Nullable="true" />
+          <Property Type="Int64" Name="LOKASYON_MALIYET_FIYAT_AD" Nullable="true" />
+          <Property Type="Boolean" Name="POS_KISISAYISI_ZORUNLU" Nullable="true" />
+          <Property Type="Int64" Name="AKRT_FIRMA" Nullable="true" />
+          <Property Type="String" Name="AKRT_DOSYA_YOLU" Nullable="true" />
+          <Property Type="Int64" Name="AKRT_DAGITICI_CARI" Nullable="true" />
+          <Property Type="Int64" Name="VARSAYILAN_CARI_GRUP" Nullable="true" />
+          <Property Type="Boolean" Name="E_BELGEDE_LOKASYON_ADRESI_YOLLANIR" Nullable="true" />
+          <Property Type="String" Name="TELEFON" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="FAX" Nullable="true" MaxLength="15" />
+          <Property Type="Int64" Name="AKRT_MANUEL" Nullable="true" />
+          <Property Type="String" Name="AKRT_FLEET_CODE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PLAKA" Nullable="true" MaxLength="15" />
+          <Property Type="Boolean" Name="BURDANBI_DE_CALISIR" Nullable="true" />
+          <Property Type="Boolean" Name="LOKASYON_SEVKINDE_MALIYET_FIYATINI_KULLANIR" Nullable="true" />
+          <Property Type="String" Name="POSTA_KODU" Nullable="true" MaxLength="7" />
+          <Property Type="Int64" Name="ID4" Nullable="false" />
+          <Property Type="String" Name="AD1" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="ACIKLAMA1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ALT_AD" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="KASA_ID" Nullable="true" />
+          <Property Type="Int64" Name="ID5" Nullable="true" />
+          <Property Type="Int32" Name="FIS_TURU" Nullable="true" />
+          <Property Type="Int64" Name="LOKASYON1" Nullable="true" />
+          <Property Type="Int64" Name="KARSI_LOKASYON" Nullable="true" />
+          <Property Type="Int64" Name="CARI" Nullable="true" />
+          <Property Type="Int64" Name="CARI_ADRES1" Nullable="true" />
+          <Property Type="Int64" Name="GONDERIM_ADRESI" Nullable="true" />
+          <Property Type="Int64" Name="PROJE1" Nullable="true" />
+          <Property Type="String" Name="BELGENO2" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FIS_TARIHI" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ISLEM_TARIHI2" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="SEVK_TARIHI" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="DOVIZ_AD1" Nullable="true" />
+          <Property Type="Decimal" Name="DOVIZ_KUR" Nullable="true" Precision="18" Scale="8" />
+          <Property Type="Int64" Name="CARI_PERSONEL" Nullable="true" />
+          <Property Type="Decimal" Name="SATIR_TOPLAM" Nullable="true" Precision="18" Scale="8" />
+          <Property Type="Decimal" Name="SATIR_ISKONTO_TOPLAM" Nullable="true" Precision="18" Scale="8" />
+          <Property Type="String" Name="FIS_ISKONTO_ORAN" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="FIS_ISKONTO_TOPLAM" Nullable="true" Precision="18" Scale="8" />
+          <Property Type="Decimal" Name="YUVARLAMA" Nullable="true" Precision="18" Scale="8" />
+          <Property Type="Decimal" Name="KDV_TOPLAM" Nullable="true" Precision="18" Scale="8" />
+          <Property Type="Decimal" Name="OTV_TOPLAM" Nullable="true" Precision="18" Scale="8" />
+          <Property Type="Decimal" Name="TEFKIFAT_TOPLAM" Nullable="true" Precision="18" Scale="8" />
+          <Property Type="Decimal" Name="GENELTOPLAM" Nullable="true" Precision="18" Scale="8" />
+          <Property Type="Boolean" Name="DURUM" Nullable="true" />
+          <Property Type="DateTime" Name="VADE" Nullable="true" />
+          <Property Type="Int64" Name="VADE_SECENEKLERI" Nullable="true" />
+          <Property Type="String" Name="ACIKLAMA2" Nullable="true" />
+          <Property Type="Int64" Name="YAZAR_KASA_NO" Nullable="true" />
+          <Property Type="Boolean" Name="FIS_CARIYI_ETKILERMI" Nullable="true" />
+          <Property Type="Int64" Name="CARI_DOVIZ_AD" Nullable="true" />
+          <Property Type="Decimal" Name="CARI_DOVIZ_KUR" Nullable="true" Precision="18" Scale="8" />
+          <Property Type="Int64" Name="CARI_TAKIP_SEKLI" Nullable="true" />
+          <Property Type="Boolean" Name="AKTIF1" Nullable="true" />
+          <Property Type="String" Name="E_FATURA_GIDIS_KODU" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="E_FATURA_GIDIS_ZAMANI" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="SEVKIYAT_YAPILSIN" Nullable="true" />
+          <Property Type="Boolean" Name="MOBIL_MI1" Nullable="true" />
+          <Property Type="String" Name="MUSTERI_AD" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="VERGI_DAIRESI" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="KARGO_CARISI" Nullable="true" />
+          <Property Type="Int64" Name="INTERNET_ODEME_SEKLI" Nullable="true" />
+          <Property Type="String" Name="INTERNET_ODEME_ACIKLAMASI" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ADRES1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="EMAIL" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="FIS_BASIM_TIPI" Nullable="true" />
+          <Property Type="Boolean" Name="ONAY_BEKLIYOR" Nullable="true" />
+          <Property Type="String" Name="VERGI_NUMARASI" Nullable="true" MaxLength="20" />
+          <Property Type="Int64" Name="YAZAR_KASA_FIS_NO" Nullable="true" />
+          <Property Type="Boolean" Name="FRANCHISEE_GONDERIM" Nullable="true" />
+          <Property Type="Boolean" Name="FRANCHISEE_ALDI" Nullable="true" />
+          <Property Type="Int64" Name="FIS_SEZON" Nullable="true" />
+          <Property Type="Int64" Name="MARKET_KASA_TERAZI_MARKALARI" Nullable="true" />
+          <Property Type="Decimal" Name="BAGKUR_ORAN" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="BAGKUR_TUTAR" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="STOPAJ_ORAN" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="STOPAJ_TUTAR" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="BORSA_ORAN" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="BORSA_TUTAR" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="MERA_ORAN" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="MERA_TUTAR" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="TEVKIF" Nullable="true" />
+          <Property Type="Int64" Name="FIS_OZEL_KOD_1" Nullable="true" />
+          <Property Type="Int64" Name="FIS_OZEL_KOD_2" Nullable="true" />
+          <Property Type="Int64" Name="FIS_OZEL_KOD_3" Nullable="true" />
+          <Property Type="Int64" Name="FIS_OZEL_KOD_4" Nullable="true" />
+          <Property Type="Int64" Name="FIS_OZEL_KOD_5" Nullable="true" />
+          <Property Type="Int64" Name="BELGE_YETKILISI" Nullable="true" />
+          <Property Type="Boolean" Name="YAZILDI" Nullable="true" />
+          <Property Type="Boolean" Name="EMAIL_GONDERILDI" Nullable="true" />
+          <Property Type="Int64" Name="NAKLIYE_ODEME_TIPI" Nullable="true" />
+          <Property Type="Int64" Name="SEVK_SEKLI" Nullable="true" />
+          <Property Type="Decimal" Name="ARTTIRIM" Nullable="true" Precision="18" Scale="8" />
+          <Property Type="Int32" Name="IHRACAT_GONDERIM_SEKLI" Nullable="true" />
+          <Property Type="Int32" Name="IHRACAT_TESLIM_SEKLI" Nullable="true" />
+          <Property Type="Int64" Name="VERGI_MUAFIYET_KODU" Nullable="true" />
+          <Property Type="Int64" Name="DOVIZ_KUR_SECIMI" Nullable="true" />
+          <Property Type="Int32" Name="E_FATURA_KABUL_DURUMU" Nullable="true" />
+          <Property Type="Int64" Name="FIS_ODEME_TIPI_ISKONTOLARI" Nullable="true" />
+          <Property Type="Boolean" Name="FIS_STOK_HAREKETLERINI_ETKILER" Nullable="true" />
+          <Property Type="Int64" Name="FIS_ALT_TIPI" Nullable="true" />
+          <Property Type="Boolean" Name="VADE_FARKI_FATURASI" Nullable="true" />
+          <Property Type="String" Name="E_FATURA_GIDIS_KODU_GECICI" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="E_FATURA_BELGE_NO_GEICICI" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SEVK_PERSONEL_AD" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SEVK_PERSONEL_TCKN" Nullable="true" MaxLength="11" />
+          <Property Type="String" Name="SEVK_ARAC_PLAKA" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="SEVK_DORSE_PLAKA" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="SGK_DOSYA_NO" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="SGK_DONEM_BASLANGIC" Nullable="true" />
+          <Property Type="DateTime" Name="SGK_DONEM_BITIS" Nullable="true" />
+          <Property Type="Boolean" Name="MUHASEBELESTI1" Nullable="true" />
+          <Property Type="Boolean" Name="PAREKENDE_KDV_KULLAN" Nullable="true" />
+          <Property Type="String" Name="SATILDIGI_PAZAR_YERI" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="ODEMEMNIN_YAPILDIGI_TARIH" Nullable="true" />
+          <Property Type="DateTime" Name="GONDERIM_TARIHI" Nullable="true" />
+          <Property Type="Boolean" Name="SEVK_EDILDI" Nullable="true" />
+          <Property Type="Int64" Name="SEVK_NEDENI" Nullable="true" />
+          <Property Type="Int64" Name="ASIL_SATICI_CARISI" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="DOVIZ_AD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ALT_AD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KASA_ID" Type="Int32" />
+          <NavigationProperty Name="FINANS_DETAY" Relationship="MRTRModel.FK_FINANS_DETAY_DOVIZ_AD" FromRole="DOVIZ_AD" ToRole="FINANS_DETAY" />
+        </EntityType>
+        <EntityType Name="FINANS_DETAY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="FINANS" Type="Int64" />
+          <Property Name="FINANS_ISLEM_TURU" Type="Int32" />
+          <Property Name="DOVIZ_AD" Type="Int64" />
+          <Property Name="KUR" Type="Decimal" Precision="18" Scale="8" />
+          <Property Name="KART_BORCLU" Type="Int64" />
+          <Property Name="KART_ALACAKLI" Type="Int64" />
+          <Property Name="TUTAR" Type="Decimal" Precision="18" Scale="8" />
+          <Property Name="SECIM" Type="Int32" />
+          <Property Name="TAHSILID" Type="Int64" />
+          <Property Name="FIS" Type="Int64" />
+          <Property Name="VADE_TARIHI" Type="DateTime" Precision="0" />
+          <Property Name="FK_PERSONEL" Type="Int64" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TAKSIT_SAYISI" Type="Int32" />
+          <Property Name="ISLEM_TARIHI" Type="DateTime" Precision="3" />
+          <Property Name="YENIDEN_TAKSIT" Type="Int64" />
+          <Property Name="unboundKUPON" Type="Int64" />
+          <Property Name="BANKA_POS_TAKSIT" Type="Int64" />
+          <Property Name="CARI_ADRES" Type="Int64" />
+          <Property Name="MUHASEBELESTI" Type="Boolean" />
+          <Property Name="TAKSIT_FISI" Type="Int64" />
+          <Property Name="BELGENO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FK_PROJE" Type="Int64" />
+          <NavigationProperty Name="DOVIZ_AD1" Relationship="MRTRModel.FK_FINANS_DETAY_DOVIZ_AD" FromRole="FINANS_DETAY" ToRole="DOVIZ_AD" />
+        </EntityType>
+        <Association Name="FK_FINANS_DETAY_DOVIZ_AD">
+          <End Type="MRTRModel.DOVIZ_AD" Role="DOVIZ_AD" Multiplicity="0..1" />
+          <End Type="MRTRModel.FINANS_DETAY" Role="FINANS_DETAY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOVIZ_AD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FINANS_DETAY">
+              <PropertyRef Name="DOVIZ_AD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TCMB_KUR_CRMPOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+          <Property Name="ALIS" Type="Decimal" Precision="18" Scale="8" />
+          <Property Name="SATIS" Type="Decimal" Precision="18" Scale="8" />
+          <Property Name="DOVIZ_AD" Type="Int64" />
+          <Property Name="SIRA" Type="Int32" />
+        </EntityType>
+        <EntityType Name="wwwView_Dovizlifislerdetay">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Fis_id" Type="Int64" />
+          <Property Name="KOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BARKOD" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MIKTAR" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="BIRIM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FIYAT" Type="Decimal" Precision="18" Scale="8" />
+          <Property Name="TOPLAM_KDV" Type="Decimal" Precision="18" Scale="8" />
+          <Property Name="DAHIL_FIYAT" Type="Decimal" Precision="18" Scale="8" />
+        </EntityType>
+        <EntityType Name="wwwView_FislerinTLDegeri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="LOKASYON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FISTURU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NAKIT" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="DOVIZ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="TL_DEGER" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="KUR_BUGUN" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="KASADAKI_TL_DEGER" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="TL_DEGER_FARKI" Type="Decimal" Precision="21" Scale="2" />
+          <Property Name="PARAUSTU_TL" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="PARAUSTU_USD" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="KUR" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="KUR_FARKI" Type="Decimal" Precision="21" Scale="2" />
+          <Property Name="KREDI" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="TOPLAM_TL" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="BELGENO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+          <Property Name="ODEMETIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dvzid" Type="Int64" />
+          <Property Name="Lkid" Type="Int64" />
+        </EntityType>
+        <EntityType Name="wwwView_DovizliFisler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="FIS_ID" Type="Int64" />
+          <Property Name="FISTURU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BELGENO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FIS_GENELTOP" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="NAKIT" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="DOVIZTUR" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="KUR" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="TL_DEGER" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="PARAUSTU_TL" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="KREDI" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="TOPLAM_TL" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="Lkid" Type="Int64" />
+          <Property Name="LOKASYON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PERSONEL" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ISLEM_TARIHI" Type="DateTime" Precision="3" />
+          <Property Name="ISLEMTURU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="wwwDOVIZ_KUR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="DOVIZ_AD" Type="Int64" />
+          <Property Name="TARIH" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="ALIS" Type="Decimal" Precision="20" Scale="2" Nullable="false" />
+          <Property Name="SATIS" Type="Decimal" Precision="20" Scale="2" Nullable="false" />
+          <Property Name="EFEKTIF_ALIS" Type="Decimal" Precision="18" Scale="8" />
+          <Property Name="EFEKTIF_SATIS" Type="Decimal" Precision="18" Scale="8" />
+          <Property Name="ID" Type="Int64" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MRTRModelStoreContainer" CdmEntityContainer="MRTREntities">
+          <EntitySetMapping Name="LOKASYON">
+            <EntityTypeMapping TypeName="MRTRModel.LOKASYON">
+              <MappingFragment StoreEntitySet="LOKASYON">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USTID" ColumnName="USTID" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="LOKASYON_TURU" ColumnName="LOKASYON_TURU" />
+                <ScalarProperty Name="SIPARIS_LOKASYONU_MU" ColumnName="SIPARIS_LOKASYONU_MU" />
+                <ScalarProperty Name="FIZIKI_MI" ColumnName="FIZIKI_MI" />
+                <ScalarProperty Name="ILILCE" ColumnName="ILILCE" />
+                <ScalarProperty Name="ADRES" ColumnName="ADRES" />
+                <ScalarProperty Name="SICAK_SATISA_ACIK" ColumnName="SICAK_SATISA_ACIK" />
+                <ScalarProperty Name="ALISA_ACIK" ColumnName="ALISA_ACIK" />
+                <ScalarProperty Name="SATISA_ACIK" ColumnName="SATISA_ACIK" />
+                <ScalarProperty Name="STOK_FIYAT_AD" ColumnName="STOK_FIYAT_AD" />
+                <ScalarProperty Name="BOYLAM" ColumnName="BOYLAM" />
+                <ScalarProperty Name="ENLEM" ColumnName="ENLEM" />
+                <ScalarProperty Name="AKTIF" ColumnName="AKTIF" />
+                <ScalarProperty Name="EMAIL_ADRES" ColumnName="EMAIL_ADRES" />
+                <ScalarProperty Name="EMAIL_PORTNO" ColumnName="EMAIL_PORTNO" />
+                <ScalarProperty Name="EMAIL_HOST" ColumnName="EMAIL_HOST" />
+                <ScalarProperty Name="EMAIL_USER" ColumnName="EMAIL_USER" />
+                <ScalarProperty Name="EMAIL_PASSWORD" ColumnName="EMAIL_PASSWORD" />
+                <ScalarProperty Name="YS_RestaurantList" ColumnName="YS_RestaurantList" />
+                <ScalarProperty Name="MEKEZI_PAKET_ALIR" ColumnName="MEKEZI_PAKET_ALIR" />
+                <ScalarProperty Name="POS_MUTFAK_YAZICI_PC" ColumnName="POS_MUTFAK_YAZICI_PC" />
+                <ScalarProperty Name="MERKEZI_PAKET_PC" ColumnName="MERKEZI_PAKET_PC" />
+                <ScalarProperty Name="SSL" ColumnName="SSL" />
+                <ScalarProperty Name="STOK_SEVIYE_UYARISI" ColumnName="STOK_SEVIYE_UYARISI" />
+                <ScalarProperty Name="ZMAIL" ColumnName="ZMAIL" />
+                <ScalarProperty Name="KT_SUBE_NO" ColumnName="KT_SUBE_NO" />
+                <ScalarProperty Name="LOKASYON_MALIYET_FIYAT_AD" ColumnName="LOKASYON_MALIYET_FIYAT_AD" />
+                <ScalarProperty Name="POS_KISISAYISI_ZORUNLU" ColumnName="POS_KISISAYISI_ZORUNLU" />
+                <ScalarProperty Name="AKRT_FIRMA" ColumnName="AKRT_FIRMA" />
+                <ScalarProperty Name="AKRT_DOSYA_YOLU" ColumnName="AKRT_DOSYA_YOLU" />
+                <ScalarProperty Name="AKRT_DAGITICI_CARI" ColumnName="AKRT_DAGITICI_CARI" />
+                <ScalarProperty Name="VARSAYILAN_CARI_GRUP" ColumnName="VARSAYILAN_CARI_GRUP" />
+                <ScalarProperty Name="E_BELGEDE_LOKASYON_ADRESI_YOLLANIR" ColumnName="E_BELGEDE_LOKASYON_ADRESI_YOLLANIR" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="AKRT_MANUEL" ColumnName="AKRT_MANUEL" />
+                <ScalarProperty Name="AKRT_FLEET_CODE" ColumnName="AKRT_FLEET_CODE" />
+                <ScalarProperty Name="PLAKA" ColumnName="PLAKA" />
+                <ScalarProperty Name="BURDANBI_DE_CALISIR" ColumnName="BURDANBI_DE_CALISIR" />
+                <ScalarProperty Name="LOKASYON_SEVKINDE_MALIYET_FIYATINI_KULLANIR" ColumnName="LOKASYON_SEVKINDE_MALIYET_FIYATINI_KULLANIR" />
+                <ScalarProperty Name="POSTA_KODU" ColumnName="POSTA_KODU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_fis_kurlu_liste_getir" FunctionName="MRTRModel.Store.sp_fis_kurlu_liste_getir">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MRTRModel.sp_fis_kurlu_liste_getir_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FINANS" ColumnName="FINANS" />
+                <ScalarProperty Name="FINANS_ISLEM_TURU" ColumnName="FINANS_ISLEM_TURU" />
+                <ScalarProperty Name="DOVIZ_AD" ColumnName="DOVIZ_AD" />
+                <ScalarProperty Name="KUR" ColumnName="KUR" />
+                <ScalarProperty Name="KART_BORCLU" ColumnName="KART_BORCLU" />
+                <ScalarProperty Name="KART_ALACAKLI" ColumnName="KART_ALACAKLI" />
+                <ScalarProperty Name="TUTAR" ColumnName="TUTAR" />
+                <ScalarProperty Name="SECIM" ColumnName="SECIM" />
+                <ScalarProperty Name="TAHSILID" ColumnName="TAHSILID" />
+                <ScalarProperty Name="FIS" ColumnName="FIS" />
+                <ScalarProperty Name="VADE_TARIHI" ColumnName="VADE_TARIHI" />
+                <ScalarProperty Name="FK_PERSONEL" ColumnName="FK_PERSONEL" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="TAKSIT_SAYISI" ColumnName="TAKSIT_SAYISI" />
+                <ScalarProperty Name="ISLEM_TARIHI" ColumnName="ISLEM_TARIHI" />
+                <ScalarProperty Name="YENIDEN_TAKSIT" ColumnName="YENIDEN_TAKSIT" />
+                <ScalarProperty Name="unboundKUPON" ColumnName="unboundKUPON" />
+                <ScalarProperty Name="BANKA_POS_TAKSIT" ColumnName="BANKA_POS_TAKSIT" />
+                <ScalarProperty Name="CARI_ADRES" ColumnName="CARI_ADRES" />
+                <ScalarProperty Name="MUHASEBELESTI" ColumnName="MUHASEBELESTI" />
+                <ScalarProperty Name="TAKSIT_FISI" ColumnName="TAKSIT_FISI" />
+                <ScalarProperty Name="BELGENO" ColumnName="BELGENO" />
+                <ScalarProperty Name="FK_PROJE" ColumnName="FK_PROJE" />
+                <ScalarProperty Name="ID1" ColumnName="ID1" />
+                <ScalarProperty Name="PROJE" ColumnName="PROJE" />
+                <ScalarProperty Name="LOKASYON" ColumnName="LOKASYON" />
+                <ScalarProperty Name="KASA_AD" ColumnName="KASA_AD" />
+                <ScalarProperty Name="BELGENO1" ColumnName="BELGENO1" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ISLEM_TARIHI1" ColumnName="ISLEM_TARIHI1" />
+                <ScalarProperty Name="FIS1" ColumnName="FIS1" />
+                <ScalarProperty Name="BAGLI_FINANS" ColumnName="BAGLI_FINANS" />
+                <ScalarProperty Name="MOBIL_MI" ColumnName="MOBIL_MI" />
+                <ScalarProperty Name="ID2" ColumnName="ID2" />
+                <ScalarProperty Name="FIS2" ColumnName="FIS2" />
+                <ScalarProperty Name="MASA" ColumnName="MASA" />
+                <ScalarProperty Name="KISI" ColumnName="KISI" />
+                <ScalarProperty Name="GUN_NO" ColumnName="GUN_NO" />
+                <ScalarProperty Name="KAPANIS_TARIHI" ColumnName="KAPANIS_TARIHI" />
+                <ScalarProperty Name="PC_ID" ColumnName="PC_ID" />
+                <ScalarProperty Name="POS_SIPARIS_TIPI" ColumnName="POS_SIPARIS_TIPI" />
+                <ScalarProperty Name="Z_NO" ColumnName="Z_NO" />
+                <ScalarProperty Name="Z_TARIHI" ColumnName="Z_TARIHI" />
+                <ScalarProperty Name="FIS_POS_IPTAL" ColumnName="FIS_POS_IPTAL" />
+                <ScalarProperty Name="KASA_Z" ColumnName="KASA_Z" />
+                <ScalarProperty Name="KASA_FIS" ColumnName="KASA_FIS" />
+                <ScalarProperty Name="OKC_SERI_NO" ColumnName="OKC_SERI_NO" />
+                <ScalarProperty Name="PAKETCI" ColumnName="PAKETCI" />
+                <ScalarProperty Name="PLATFORM" ColumnName="PLATFORM" />
+                <ScalarProperty Name="ID3" ColumnName="ID3" />
+                <ScalarProperty Name="USTID" ColumnName="USTID" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="LOKASYON_TURU" ColumnName="LOKASYON_TURU" />
+                <ScalarProperty Name="SIPARIS_LOKASYONU_MU" ColumnName="SIPARIS_LOKASYONU_MU" />
+                <ScalarProperty Name="FIZIKI_MI" ColumnName="FIZIKI_MI" />
+                <ScalarProperty Name="ILILCE" ColumnName="ILILCE" />
+                <ScalarProperty Name="ADRES" ColumnName="ADRES" />
+                <ScalarProperty Name="SICAK_SATISA_ACIK" ColumnName="SICAK_SATISA_ACIK" />
+                <ScalarProperty Name="ALISA_ACIK" ColumnName="ALISA_ACIK" />
+                <ScalarProperty Name="SATISA_ACIK" ColumnName="SATISA_ACIK" />
+                <ScalarProperty Name="STOK_FIYAT_AD" ColumnName="STOK_FIYAT_AD" />
+                <ScalarProperty Name="BOYLAM" ColumnName="BOYLAM" />
+                <ScalarProperty Name="ENLEM" ColumnName="ENLEM" />
+                <ScalarProperty Name="AKTIF" ColumnName="AKTIF" />
+                <ScalarProperty Name="EMAIL_ADRES" ColumnName="EMAIL_ADRES" />
+                <ScalarProperty Name="EMAIL_PORTNO" ColumnName="EMAIL_PORTNO" />
+                <ScalarProperty Name="EMAIL_HOST" ColumnName="EMAIL_HOST" />
+                <ScalarProperty Name="EMAIL_USER" ColumnName="EMAIL_USER" />
+                <ScalarProperty Name="EMAIL_PASSWORD" ColumnName="EMAIL_PASSWORD" />
+                <ScalarProperty Name="YS_RestaurantList" ColumnName="YS_RestaurantList" />
+                <ScalarProperty Name="MEKEZI_PAKET_ALIR" ColumnName="MEKEZI_PAKET_ALIR" />
+                <ScalarProperty Name="POS_MUTFAK_YAZICI_PC" ColumnName="POS_MUTFAK_YAZICI_PC" />
+                <ScalarProperty Name="MERKEZI_PAKET_PC" ColumnName="MERKEZI_PAKET_PC" />
+                <ScalarProperty Name="SSL" ColumnName="SSL" />
+                <ScalarProperty Name="STOK_SEVIYE_UYARISI" ColumnName="STOK_SEVIYE_UYARISI" />
+                <ScalarProperty Name="ZMAIL" ColumnName="ZMAIL" />
+                <ScalarProperty Name="KT_SUBE_NO" ColumnName="KT_SUBE_NO" />
+                <ScalarProperty Name="LOKASYON_MALIYET_FIYAT_AD" ColumnName="LOKASYON_MALIYET_FIYAT_AD" />
+                <ScalarProperty Name="POS_KISISAYISI_ZORUNLU" ColumnName="POS_KISISAYISI_ZORUNLU" />
+                <ScalarProperty Name="AKRT_FIRMA" ColumnName="AKRT_FIRMA" />
+                <ScalarProperty Name="AKRT_DOSYA_YOLU" ColumnName="AKRT_DOSYA_YOLU" />
+                <ScalarProperty Name="AKRT_DAGITICI_CARI" ColumnName="AKRT_DAGITICI_CARI" />
+                <ScalarProperty Name="VARSAYILAN_CARI_GRUP" ColumnName="VARSAYILAN_CARI_GRUP" />
+                <ScalarProperty Name="E_BELGEDE_LOKASYON_ADRESI_YOLLANIR" ColumnName="E_BELGEDE_LOKASYON_ADRESI_YOLLANIR" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="AKRT_MANUEL" ColumnName="AKRT_MANUEL" />
+                <ScalarProperty Name="AKRT_FLEET_CODE" ColumnName="AKRT_FLEET_CODE" />
+                <ScalarProperty Name="PLAKA" ColumnName="PLAKA" />
+                <ScalarProperty Name="BURDANBI_DE_CALISIR" ColumnName="BURDANBI_DE_CALISIR" />
+                <ScalarProperty Name="LOKASYON_SEVKINDE_MALIYET_FIYATINI_KULLANIR" ColumnName="LOKASYON_SEVKINDE_MALIYET_FIYATINI_KULLANIR" />
+                <ScalarProperty Name="POSTA_KODU" ColumnName="POSTA_KODU" />
+                <ScalarProperty Name="ID4" ColumnName="ID4" />
+                <ScalarProperty Name="AD1" ColumnName="AD1" />
+                <ScalarProperty Name="ACIKLAMA1" ColumnName="ACIKLAMA1" />
+                <ScalarProperty Name="ALT_AD" ColumnName="ALT_AD" />
+                <ScalarProperty Name="KASA_ID" ColumnName="KASA_ID" />
+                <ScalarProperty Name="ID5" ColumnName="ID5" />
+                <ScalarProperty Name="FIS_TURU" ColumnName="FIS_TURU" />
+                <ScalarProperty Name="LOKASYON1" ColumnName="LOKASYON1" />
+                <ScalarProperty Name="KARSI_LOKASYON" ColumnName="KARSI_LOKASYON" />
+                <ScalarProperty Name="CARI" ColumnName="CARI" />
+                <ScalarProperty Name="CARI_ADRES1" ColumnName="CARI_ADRES1" />
+                <ScalarProperty Name="GONDERIM_ADRESI" ColumnName="GONDERIM_ADRESI" />
+                <ScalarProperty Name="PROJE1" ColumnName="PROJE1" />
+                <ScalarProperty Name="BELGENO2" ColumnName="BELGENO2" />
+                <ScalarProperty Name="FIS_TARIHI" ColumnName="FIS_TARIHI" />
+                <ScalarProperty Name="ISLEM_TARIHI2" ColumnName="ISLEM_TARIHI2" />
+                <ScalarProperty Name="SEVK_TARIHI" ColumnName="SEVK_TARIHI" />
+                <ScalarProperty Name="DOVIZ_AD1" ColumnName="DOVIZ_AD1" />
+                <ScalarProperty Name="DOVIZ_KUR" ColumnName="DOVIZ_KUR" />
+                <ScalarProperty Name="CARI_PERSONEL" ColumnName="CARI_PERSONEL" />
+                <ScalarProperty Name="SATIR_TOPLAM" ColumnName="SATIR_TOPLAM" />
+                <ScalarProperty Name="SATIR_ISKONTO_TOPLAM" ColumnName="SATIR_ISKONTO_TOPLAM" />
+                <ScalarProperty Name="FIS_ISKONTO_ORAN" ColumnName="FIS_ISKONTO_ORAN" />
+                <ScalarProperty Name="FIS_ISKONTO_TOPLAM" ColumnName="FIS_ISKONTO_TOPLAM" />
+                <ScalarProperty Name="YUVARLAMA" ColumnName="YUVARLAMA" />
+                <ScalarProperty Name="KDV_TOPLAM" ColumnName="KDV_TOPLAM" />
+                <ScalarProperty Name="OTV_TOPLAM" ColumnName="OTV_TOPLAM" />
+                <ScalarProperty Name="TEFKIFAT_TOPLAM" ColumnName="TEFKIFAT_TOPLAM" />
+                <ScalarProperty Name="GENELTOPLAM" ColumnName="GENELTOPLAM" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+                <ScalarProperty Name="VADE" ColumnName="VADE" />
+                <ScalarProperty Name="VADE_SECENEKLERI" ColumnName="VADE_SECENEKLERI" />
+                <ScalarProperty Name="ACIKLAMA2" ColumnName="ACIKLAMA2" />
+                <ScalarProperty Name="YAZAR_KASA_NO" ColumnName="YAZAR_KASA_NO" />
+                <ScalarProperty Name="FIS_CARIYI_ETKILERMI" ColumnName="FIS_CARIYI_ETKILERMI" />
+                <ScalarProperty Name="CARI_DOVIZ_AD" ColumnName="CARI_DOVIZ_AD" />
+                <ScalarProperty Name="CARI_DOVIZ_KUR" ColumnName="CARI_DOVIZ_KUR" />
+                <ScalarProperty Name="CARI_TAKIP_SEKLI" ColumnName="CARI_TAKIP_SEKLI" />
+                <ScalarProperty Name="AKTIF1" ColumnName="AKTIF1" />
+                <ScalarProperty Name="E_FATURA_GIDIS_KODU" ColumnName="E_FATURA_GIDIS_KODU" />
+                <ScalarProperty Name="E_FATURA_GIDIS_ZAMANI" ColumnName="E_FATURA_GIDIS_ZAMANI" />
+                <ScalarProperty Name="SEVKIYAT_YAPILSIN" ColumnName="SEVKIYAT_YAPILSIN" />
+                <ScalarProperty Name="MOBIL_MI1" ColumnName="MOBIL_MI1" />
+                <ScalarProperty Name="MUSTERI_AD" ColumnName="MUSTERI_AD" />
+                <ScalarProperty Name="VERGI_DAIRESI" ColumnName="VERGI_DAIRESI" />
+                <ScalarProperty Name="KARGO_CARISI" ColumnName="KARGO_CARISI" />
+                <ScalarProperty Name="INTERNET_ODEME_SEKLI" ColumnName="INTERNET_ODEME_SEKLI" />
+                <ScalarProperty Name="INTERNET_ODEME_ACIKLAMASI" ColumnName="INTERNET_ODEME_ACIKLAMASI" />
+                <ScalarProperty Name="ADRES1" ColumnName="ADRES1" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="FIS_BASIM_TIPI" ColumnName="FIS_BASIM_TIPI" />
+                <ScalarProperty Name="ONAY_BEKLIYOR" ColumnName="ONAY_BEKLIYOR" />
+                <ScalarProperty Name="VERGI_NUMARASI" ColumnName="VERGI_NUMARASI" />
+                <ScalarProperty Name="YAZAR_KASA_FIS_NO" ColumnName="YAZAR_KASA_FIS_NO" />
+                <ScalarProperty Name="FRANCHISEE_GONDERIM" ColumnName="FRANCHISEE_GONDERIM" />
+                <ScalarProperty Name="FRANCHISEE_ALDI" ColumnName="FRANCHISEE_ALDI" />
+                <ScalarProperty Name="FIS_SEZON" ColumnName="FIS_SEZON" />
+                <ScalarProperty Name="MARKET_KASA_TERAZI_MARKALARI" ColumnName="MARKET_KASA_TERAZI_MARKALARI" />
+                <ScalarProperty Name="BAGKUR_ORAN" ColumnName="BAGKUR_ORAN" />
+                <ScalarProperty Name="BAGKUR_TUTAR" ColumnName="BAGKUR_TUTAR" />
+                <ScalarProperty Name="STOPAJ_ORAN" ColumnName="STOPAJ_ORAN" />
+                <ScalarProperty Name="STOPAJ_TUTAR" ColumnName="STOPAJ_TUTAR" />
+                <ScalarProperty Name="BORSA_ORAN" ColumnName="BORSA_ORAN" />
+                <ScalarProperty Name="BORSA_TUTAR" ColumnName="BORSA_TUTAR" />
+                <ScalarProperty Name="MERA_ORAN" ColumnName="MERA_ORAN" />
+                <ScalarProperty Name="MERA_TUTAR" ColumnName="MERA_TUTAR" />
+                <ScalarProperty Name="TEVKIF" ColumnName="TEVKIF" />
+                <ScalarProperty Name="FIS_OZEL_KOD_1" ColumnName="FIS_OZEL_KOD_1" />
+                <ScalarProperty Name="FIS_OZEL_KOD_2" ColumnName="FIS_OZEL_KOD_2" />
+                <ScalarProperty Name="FIS_OZEL_KOD_3" ColumnName="FIS_OZEL_KOD_3" />
+                <ScalarProperty Name="FIS_OZEL_KOD_4" ColumnName="FIS_OZEL_KOD_4" />
+                <ScalarProperty Name="FIS_OZEL_KOD_5" ColumnName="FIS_OZEL_KOD_5" />
+                <ScalarProperty Name="BELGE_YETKILISI" ColumnName="BELGE_YETKILISI" />
+                <ScalarProperty Name="YAZILDI" ColumnName="YAZILDI" />
+                <ScalarProperty Name="EMAIL_GONDERILDI" ColumnName="EMAIL_GONDERILDI" />
+                <ScalarProperty Name="NAKLIYE_ODEME_TIPI" ColumnName="NAKLIYE_ODEME_TIPI" />
+                <ScalarProperty Name="SEVK_SEKLI" ColumnName="SEVK_SEKLI" />
+                <ScalarProperty Name="ARTTIRIM" ColumnName="ARTTIRIM" />
+                <ScalarProperty Name="IHRACAT_GONDERIM_SEKLI" ColumnName="IHRACAT_GONDERIM_SEKLI" />
+                <ScalarProperty Name="IHRACAT_TESLIM_SEKLI" ColumnName="IHRACAT_TESLIM_SEKLI" />
+                <ScalarProperty Name="VERGI_MUAFIYET_KODU" ColumnName="VERGI_MUAFIYET_KODU" />
+                <ScalarProperty Name="DOVIZ_KUR_SECIMI" ColumnName="DOVIZ_KUR_SECIMI" />
+                <ScalarProperty Name="E_FATURA_KABUL_DURUMU" ColumnName="E_FATURA_KABUL_DURUMU" />
+                <ScalarProperty Name="FIS_ODEME_TIPI_ISKONTOLARI" ColumnName="FIS_ODEME_TIPI_ISKONTOLARI" />
+                <ScalarProperty Name="FIS_STOK_HAREKETLERINI_ETKILER" ColumnName="FIS_STOK_HAREKETLERINI_ETKILER" />
+                <ScalarProperty Name="FIS_ALT_TIPI" ColumnName="FIS_ALT_TIPI" />
+                <ScalarProperty Name="VADE_FARKI_FATURASI" ColumnName="VADE_FARKI_FATURASI" />
+                <ScalarProperty Name="E_FATURA_GIDIS_KODU_GECICI" ColumnName="E_FATURA_GIDIS_KODU_GECICI" />
+                <ScalarProperty Name="E_FATURA_BELGE_NO_GEICICI" ColumnName="E_FATURA_BELGE_NO_GEICICI" />
+                <ScalarProperty Name="SEVK_PERSONEL_AD" ColumnName="SEVK_PERSONEL_AD" />
+                <ScalarProperty Name="SEVK_PERSONEL_TCKN" ColumnName="SEVK_PERSONEL_TCKN" />
+                <ScalarProperty Name="SEVK_ARAC_PLAKA" ColumnName="SEVK_ARAC_PLAKA" />
+                <ScalarProperty Name="SEVK_DORSE_PLAKA" ColumnName="SEVK_DORSE_PLAKA" />
+                <ScalarProperty Name="SGK_DOSYA_NO" ColumnName="SGK_DOSYA_NO" />
+                <ScalarProperty Name="SGK_DONEM_BASLANGIC" ColumnName="SGK_DONEM_BASLANGIC" />
+                <ScalarProperty Name="SGK_DONEM_BITIS" ColumnName="SGK_DONEM_BITIS" />
+                <ScalarProperty Name="MUHASEBELESTI1" ColumnName="MUHASEBELESTI1" />
+                <ScalarProperty Name="PAREKENDE_KDV_KULLAN" ColumnName="PAREKENDE_KDV_KULLAN" />
+                <ScalarProperty Name="SATILDIGI_PAZAR_YERI" ColumnName="SATILDIGI_PAZAR_YERI" />
+                <ScalarProperty Name="ODEMEMNIN_YAPILDIGI_TARIH" ColumnName="ODEMEMNIN_YAPILDIGI_TARIH" />
+                <ScalarProperty Name="GONDERIM_TARIHI" ColumnName="GONDERIM_TARIHI" />
+                <ScalarProperty Name="SEVK_EDILDI" ColumnName="SEVK_EDILDI" />
+                <ScalarProperty Name="SEVK_NEDENI" ColumnName="SEVK_NEDENI" />
+                <ScalarProperty Name="ASIL_SATICI_CARISI" ColumnName="ASIL_SATICI_CARISI" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="DOVIZ_AD">
+            <EntityTypeMapping TypeName="MRTRModel.DOVIZ_AD">
+              <MappingFragment StoreEntitySet="DOVIZ_AD">
+                <ScalarProperty Name="KASA_ID" ColumnName="KASA_ID" />
+                <ScalarProperty Name="ALT_AD" ColumnName="ALT_AD" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FINANS_DETAY">
+            <EntityTypeMapping TypeName="MRTRModel.FINANS_DETAY">
+              <MappingFragment StoreEntitySet="FINANS_DETAY">
+                <ScalarProperty Name="FK_PROJE" ColumnName="FK_PROJE" />
+                <ScalarProperty Name="BELGENO" ColumnName="BELGENO" />
+                <ScalarProperty Name="TAKSIT_FISI" ColumnName="TAKSIT_FISI" />
+                <ScalarProperty Name="MUHASEBELESTI" ColumnName="MUHASEBELESTI" />
+                <ScalarProperty Name="CARI_ADRES" ColumnName="CARI_ADRES" />
+                <ScalarProperty Name="BANKA_POS_TAKSIT" ColumnName="BANKA_POS_TAKSIT" />
+                <ScalarProperty Name="unboundKUPON" ColumnName="unboundKUPON" />
+                <ScalarProperty Name="YENIDEN_TAKSIT" ColumnName="YENIDEN_TAKSIT" />
+                <ScalarProperty Name="ISLEM_TARIHI" ColumnName="ISLEM_TARIHI" />
+                <ScalarProperty Name="TAKSIT_SAYISI" ColumnName="TAKSIT_SAYISI" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="FK_PERSONEL" ColumnName="FK_PERSONEL" />
+                <ScalarProperty Name="VADE_TARIHI" ColumnName="VADE_TARIHI" />
+                <ScalarProperty Name="FIS" ColumnName="FIS" />
+                <ScalarProperty Name="TAHSILID" ColumnName="TAHSILID" />
+                <ScalarProperty Name="SECIM" ColumnName="SECIM" />
+                <ScalarProperty Name="TUTAR" ColumnName="TUTAR" />
+                <ScalarProperty Name="KART_ALACAKLI" ColumnName="KART_ALACAKLI" />
+                <ScalarProperty Name="KART_BORCLU" ColumnName="KART_BORCLU" />
+                <ScalarProperty Name="KUR" ColumnName="KUR" />
+                <ScalarProperty Name="DOVIZ_AD" ColumnName="DOVIZ_AD" />
+                <ScalarProperty Name="FINANS_ISLEM_TURU" ColumnName="FINANS_ISLEM_TURU" />
+                <ScalarProperty Name="FINANS" ColumnName="FINANS" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="crmpos_fifo_stok_doviz" FunctionName="MRTRModel.Store.crmpos_fifo_stok_doviz" />
+          <EntitySetMapping Name="TCMB_KUR_CRMPOS">
+            <EntityTypeMapping TypeName="MRTRModel.TCMB_KUR_CRMPOS">
+              <MappingFragment StoreEntitySet="TCMB_KUR_CRMPOS">
+                <ScalarProperty Name="SIRA" ColumnName="SIRA" />
+                <ScalarProperty Name="DOVIZ_AD" ColumnName="DOVIZ_AD" />
+                <ScalarProperty Name="SATIS" ColumnName="SATIS" />
+                <ScalarProperty Name="ALIS" ColumnName="ALIS" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wwwView_Dovizlifislerdetay">
+            <EntityTypeMapping TypeName="MRTRModel.wwwView_Dovizlifislerdetay">
+              <MappingFragment StoreEntitySet="wwwView_Dovizlifislerdetay">
+                <ScalarProperty Name="DAHIL_FIYAT" ColumnName="DAHIL_FIYAT" />
+                <ScalarProperty Name="TOPLAM_KDV" ColumnName="TOPLAM_KDV" />
+                <ScalarProperty Name="FIYAT" ColumnName="FIYAT" />
+                <ScalarProperty Name="BIRIM" ColumnName="BIRIM" />
+                <ScalarProperty Name="MIKTAR" ColumnName="MIKTAR" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="BARKOD" ColumnName="BARKOD" />
+                <ScalarProperty Name="KOD" ColumnName="KOD" />
+                <ScalarProperty Name="Fis_id" ColumnName="Fis_id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wwwView_FislerinTLDegeri">
+            <EntityTypeMapping TypeName="MRTRModel.wwwView_FislerinTLDegeri">
+              <MappingFragment StoreEntitySet="wwwView_FislerinTLDegeri">
+                <ScalarProperty Name="Lkid" ColumnName="Lkid" />
+                <ScalarProperty Name="Dvzid" ColumnName="Dvzid" />
+                <ScalarProperty Name="ODEMETIP" ColumnName="ODEMETIP" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="BELGENO" ColumnName="BELGENO" />
+                <ScalarProperty Name="TOPLAM_TL" ColumnName="TOPLAM_TL" />
+                <ScalarProperty Name="KREDI" ColumnName="KREDI" />
+                <ScalarProperty Name="KUR_FARKI" ColumnName="KUR_FARKI" />
+                <ScalarProperty Name="KUR" ColumnName="KUR" />
+                <ScalarProperty Name="PARAUSTU_USD" ColumnName="PARAUSTU_USD" />
+                <ScalarProperty Name="PARAUSTU_TL" ColumnName="PARAUSTU_TL" />
+                <ScalarProperty Name="TL_DEGER_FARKI" ColumnName="TL_DEGER_FARKI" />
+                <ScalarProperty Name="KASADAKI_TL_DEGER" ColumnName="KASADAKI_TL_DEGER" />
+                <ScalarProperty Name="KUR_BUGUN" ColumnName="KUR_BUGUN" />
+                <ScalarProperty Name="TL_DEGER" ColumnName="TL_DEGER" />
+                <ScalarProperty Name="DOVIZ" ColumnName="DOVIZ" />
+                <ScalarProperty Name="NAKIT" ColumnName="NAKIT" />
+                <ScalarProperty Name="FISTURU" ColumnName="FISTURU" />
+                <ScalarProperty Name="LOKASYON" ColumnName="LOKASYON" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="crmpos_fifo_stok_envanter_doviz" FunctionName="MRTRModel.Store.crmpos_fifo_stok_envanter_doviz" />
+          <FunctionImportMapping FunctionImportName="crmpos_odeme_guncelle" FunctionName="MRTRModel.Store.crmpos_odeme_guncelle" />
+          <FunctionImportMapping FunctionImportName="crmpos_paraustu_guncelle" FunctionName="MRTRModel.Store.crmpos_paraustu_guncelle" />
+          <EntitySetMapping Name="wwwView_DovizliFisler">
+            <EntityTypeMapping TypeName="MRTRModel.wwwView_DovizliFisler">
+              <MappingFragment StoreEntitySet="wwwView_DovizliFisler">
+                <ScalarProperty Name="ISLEMTURU" ColumnName="ISLEMTURU" />
+                <ScalarProperty Name="ISLEM_TARIHI" ColumnName="ISLEM_TARIHI" />
+                <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+                <ScalarProperty Name="LOKASYON" ColumnName="LOKASYON" />
+                <ScalarProperty Name="Lkid" ColumnName="Lkid" />
+                <ScalarProperty Name="TOPLAM_TL" ColumnName="TOPLAM_TL" />
+                <ScalarProperty Name="KREDI" ColumnName="KREDI" />
+                <ScalarProperty Name="PARAUSTU_TL" ColumnName="PARAUSTU_TL" />
+                <ScalarProperty Name="TL_DEGER" ColumnName="TL_DEGER" />
+                <ScalarProperty Name="KUR" ColumnName="KUR" />
+                <ScalarProperty Name="DOVIZTUR" ColumnName="DOVIZTUR" />
+                <ScalarProperty Name="NAKIT" ColumnName="NAKIT" />
+                <ScalarProperty Name="FIS_GENELTOP" ColumnName="FIS_GENELTOP" />
+                <ScalarProperty Name="BELGENO" ColumnName="BELGENO" />
+                <ScalarProperty Name="FISTURU" ColumnName="FISTURU" />
+                <ScalarProperty Name="FIS_ID" ColumnName="FIS_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wwwDOVIZ_KUR">
+            <EntityTypeMapping TypeName="MRTRModel.wwwDOVIZ_KUR">
+              <MappingFragment StoreEntitySet="wwwDOVIZ_KUR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EFEKTIF_SATIS" ColumnName="EFEKTIF_SATIS" />
+                <ScalarProperty Name="EFEKTIF_ALIS" ColumnName="EFEKTIF_ALIS" />
+                <ScalarProperty Name="SATIS" ColumnName="SATIS" />
+                <ScalarProperty Name="ALIS" ColumnName="ALIS" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="DOVIZ_AD" ColumnName="DOVIZ_AD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="crmpos_kasa_hareketi" FunctionName="MRTRModel.Store.crmpos_kasa_hareketi" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
